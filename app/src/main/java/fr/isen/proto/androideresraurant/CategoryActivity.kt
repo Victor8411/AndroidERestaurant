@@ -34,8 +34,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.TopAppBar
 
-
-
 class CategoryActivity : ComponentActivity() {
 
     private lateinit var sharedPreferences: SharedPreferences
@@ -92,8 +90,6 @@ class CategoryActivity : ComponentActivity() {
             }
         )
     }
-
-
 
     @Composable
     fun MenuContent(selectedCategory: String) {
@@ -157,7 +153,7 @@ class CategoryActivity : ComponentActivity() {
                         )
                     }
                 }
-                // autres infos
+                // autres infos ?
             }
         }
     }
