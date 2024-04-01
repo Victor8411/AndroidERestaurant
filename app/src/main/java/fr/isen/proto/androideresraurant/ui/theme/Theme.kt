@@ -1,4 +1,4 @@
-package fr.isen.daoulas.androideresraurant.ui.theme
+package fr.isen.proto.androideresraurant.ui.theme
 
 import android.app.Activity
 import android.os.Build

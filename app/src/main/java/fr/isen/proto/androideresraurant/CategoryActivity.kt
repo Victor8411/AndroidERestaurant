@@ -25,7 +25,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
-import fr.isen.daoulas.androideresraurant.ui.theme.AndroidEResraurantTheme
+import fr.isen.proto.androideresraurant.ui.theme.AndroidEResraurantTheme
 import org.json.JSONObject
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button

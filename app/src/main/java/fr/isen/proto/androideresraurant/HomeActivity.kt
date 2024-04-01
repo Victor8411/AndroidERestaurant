@@ -30,7 +30,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.graphics.Brush
 
 
-import fr.isen.daoulas.androideresraurant.ui.theme.AndroidEResraurantTheme
+import fr.isen.proto.androideresraurant.ui.theme.AndroidEResraurantTheme
 
 class HomeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -88,10 +88,10 @@ fun Header(modifier: Modifier= Modifier) {
         modifier = modifier
             .fillMaxWidth()
             .background(Brush.linearGradient(colors = listOf(Color(0xFFFA8072), Color(0xFFFFA500))))
-            .padding(vertical = 30.dp, horizontal = 16.dp)
+            .padding(vertical = 20.dp, horizontal = 16.dp)
     ) {
         Text(
-            text = "DroidRestaurant",
+            text = "ProtoFood",
             color = Color.White,
             style = TextStyle(
                 fontWeight = FontWeight.Bold,
@@ -119,7 +119,7 @@ fun Banner(modifier: Modifier = Modifier) {
                 color = Color(0xFFFFA500),
                 textAlign = TextAlign.End,
                 style = TextStyle(fontSize = 30.sp),
-                modifier = Modifier.padding(start = 80.dp)
+                modifier = Modifier.padding(start = 40.dp)
 
             )
             Text(
@@ -130,7 +130,7 @@ fun Banner(modifier: Modifier = Modifier) {
                 modifier = Modifier.padding(start = 165.dp)
             )
             Text(
-                text = "DroidRestaurant",
+                text = "ProtoFood",
                 color = Color(0xCD310010),
                 textAlign = TextAlign.End,
                 style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 30.sp)
@@ -139,7 +139,7 @@ fun Banner(modifier: Modifier = Modifier) {
         Image(
             painter = painterResource(id = R.drawable.android),
             contentDescription = "Android",
-            modifier = Modifier.size(150.dp), // Ajuster la taille
+            modifier = Modifier.size(110.dp), // Ajuster la taille
             alignment = Alignment.TopEnd
         )
     }
