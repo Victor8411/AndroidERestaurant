@@ -66,7 +66,7 @@ class CategoryActivity : ComponentActivity() {
     @Composable
     fun ToolBar(onCartClick: () -> Unit, cartItemCount: Int) {
         TopAppBar(
-            title = { Text("ProtoFood", color = MaterialTheme.colorScheme.onPrimary) },
+            title = { Text("ProtoFood", color = MaterialTheme.colorScheme.onTertiary) },
             actions = {
                 if (cartItemCount > 0) {
                     BadgedBox(badge = { Badge { Text("$cartItemCount") } }) {
@@ -74,7 +74,7 @@ class CategoryActivity : ComponentActivity() {
                             Icon(
                                 painter = painterResource(id = R.drawable.ic_shopping_cart),
                                 contentDescription = "Cart",
-                                tint = MaterialTheme.colorScheme.onPrimary
+                                tint = MaterialTheme.colorScheme.onTertiary
                             )
                         }
                     }
@@ -83,7 +83,7 @@ class CategoryActivity : ComponentActivity() {
                         Icon(
                             painter = painterResource(id = R.drawable.ic_shopping_cart),
                             contentDescription = "Cart",
-                            tint = MaterialTheme.colorScheme.onPrimary
+                            tint = MaterialTheme.colorScheme.onTertiary
                         )
                     }
                 }
@@ -163,12 +163,10 @@ class CategoryActivity : ComponentActivity() {
 data class MenuData(
     val data: List<CategoryItem>
 )
-
 data class CategoryItem(
     val name_fr: String,
     val items: List<MonMenuItem>
 )
-
 data class MonMenuItem(
     val itemId: String,
     val name_fr: String,
@@ -176,11 +174,9 @@ data class MonMenuItem(
     val prices: List<Price>,
     val ingredients: List<Ingredient>
 )
-
 data class Price(
     val price: Double
 )
-
 data class Ingredient(
     val name_fr: String
 )

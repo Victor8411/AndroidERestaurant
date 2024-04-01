@@ -52,6 +52,27 @@ class HomeActivity : ComponentActivity() {
 }
 
 @Composable
+fun Header(modifier: Modifier= Modifier) {
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .background(Brush.linearGradient(colors = listOf(Color(0xFFFA8072), Color(0xFFFFA500))))
+            .padding(vertical = 20.dp, horizontal = 16.dp)
+    ) {
+        Text(
+            text = "ProtoFood",
+            color = Color.White,
+            style = TextStyle(
+                fontWeight = FontWeight.Bold,
+                fontSize = 30.sp
+            ),
+            textAlign = TextAlign.Center,
+            modifier = Modifier.align(Alignment.Center)
+        )
+    }
+}
+
+@Composable
 fun CategorySelection(context: Context) {
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -84,26 +105,30 @@ fun CategorySelection(context: Context) {
 }
 
 @Composable
-fun Header(modifier: Modifier= Modifier) {
-    Box(
-        modifier = modifier
+fun CategoryButton(category: String, context: Context) {
+    Button(
+        onClick = {
+            val intent = Intent(context, CategoryActivity::class.java)
+            intent.putExtra("category", category)
+            context.startActivity(intent)
+            Toast.makeText(
+                context,
+                "Vous avez cliqué sur la catégorie: $category",
+                Toast.LENGTH_SHORT
+            ).show()
+        },
+        modifier = Modifier
             .fillMaxWidth()
-            .background(Brush.linearGradient(colors = listOf(Color(0xFFFA8072), Color(0xFFFFA500))))
-            .padding(vertical = 20.dp, horizontal = 16.dp)
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        shape = RoundedCornerShape(8.dp),
+        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
     ) {
         Text(
-            text = "ProtoFood",
-            color = Color.White,
-            style = TextStyle(
-                fontWeight = FontWeight.Bold,
-                fontSize = 30.sp
-            ),
-            textAlign = TextAlign.Center,
-            modifier = Modifier.align(Alignment.Center)
+            text = category,
+            color = MaterialTheme.colorScheme.onPrimary
         )
     }
 }
-
 
 @Composable
 fun Banner(modifier: Modifier = Modifier) {
@@ -146,28 +171,3 @@ fun Banner(modifier: Modifier = Modifier) {
     }
 }
 
-@Composable
-fun CategoryButton(category: String, context: Context) {
-    Button(
-        onClick = {
-            val intent = Intent(context, CategoryActivity::class.java)
-            intent.putExtra("category", category)
-            context.startActivity(intent)
-            Toast.makeText(
-                context,
-                "Vous avez cliqué sur la catégorie: $category",
-                Toast.LENGTH_SHORT
-            ).show()
-        },
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        shape = RoundedCornerShape(8.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
-    ) {
-        Text(
-            text = category,
-            color = MaterialTheme.colorScheme.onPrimary
-        )
-    }
-}

@@ -16,26 +16,22 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-// Définition des couleurs personnalisées
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
     tertiary = Pink80,
-    onPrimary = Color.White, // Couleur du texte/icon sur fond primaire pour le thème sombre
-    // Ajoutez ou modifiez d'autres couleurs ici si nécessaire
+    onPrimary = Color.White,
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
+    primary = Color(0xFFFF796F),
     secondary = PurpleGrey40,
     tertiary = Pink40,
-    onPrimary = Color.White, // Couleur du texte/icon sur fond primaire pour le thème clair
-    // Ajoutez ou modifiez d'autres couleurs ici si nécessaire
-    /* Autres couleurs par défaut à surcharger*/
+    onPrimary = Color(0xFFFFFFFF),
     background = Color(0xFFFFFBFE),
     surface = Color(0xFFFFFBFE),
     onSecondary = Color.White,
-    onTertiary = Color.White,
+    onTertiary = Color(0xFF1C1B1F),
     onBackground = Color(0xFF1C1B1F),
     onSurface = Color(0xFF1C1B1F),
 
@@ -44,7 +40,6 @@ private val LightColorScheme = lightColorScheme(
 @Composable
 fun AndroidEResraurantTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // La couleur dynamique est disponible sur Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
