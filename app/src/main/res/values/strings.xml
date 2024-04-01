@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">AndroidERestaurant</string>
+    <string name="restaurant_name">DroidRestaurant</string>
+    <string name="title_activity_menu">CategoryActivity</string>
+
+    <!-- Simulated entry items -->
+    <string name="entrees">Entrées</string>
+    <string-array name="entries_list">
+    </string-array>
+
+    <!-- Simulated main course items -->
+    <string name="main_courses">Plat</string>
+    <string-array name="main_courses_list">
+
+    </string-array>
+
+    <!-- Simulated dessert items -->
+    <string name="desserts">Dessert</string>
+    <string-array name="desserts_list">
+
+    </string-array>
+    <string name="title_activity_details">DetailsActivity</string>
+
+</resources>
+
