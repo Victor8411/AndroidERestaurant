@@ -14,33 +14,27 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import com.android.volley.Request
-import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import fr.isen.proto.androideresraurant.ui.theme.AndroidEResraurantTheme
 import org.json.JSONObject
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.material3.Surface
-import androidx.compose.ui.graphics.Brush
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.TopAppBar
+
+
 
 class CategoryActivity : ComponentActivity() {
 
@@ -58,7 +52,7 @@ class CategoryActivity : ComponentActivity() {
                 ) {
                     Column {
                         ToolBar(
-                            onCartClick = { /* Logique de navigation vers le panier */ },
+                            onCartClick = {  },
                             cartItemCount = getCartItemCount()
                         )
                         MenuContent(category)
@@ -74,21 +68,32 @@ class CategoryActivity : ComponentActivity() {
     @Composable
     fun ToolBar(onCartClick: () -> Unit, cartItemCount: Int) {
         TopAppBar(
-            title = { Text("DroidRestaurant", color = MaterialTheme.colorScheme.onPrimary) },
+            title = { Text("ProtoFood", color = MaterialTheme.colorScheme.onPrimary) },
             actions = {
-                IconButton(onClick = onCartClick) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.ic_shopping_cart),
-                        contentDescription = "Cart",
-                        tint = MaterialTheme.colorScheme.onPrimary // Assurez-vous que l'icône est également visible
-                    )
-                }
                 if (cartItemCount > 0) {
-                    Badge { Text("$cartItemCount") }
+                    BadgedBox(badge = { Badge { Text("$cartItemCount") } }) {
+                        IconButton(onClick = onCartClick) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_shopping_cart),
+                                contentDescription = "Cart",
+                                tint = MaterialTheme.colorScheme.onPrimary
+                            )
+                        }
+                    }
+                } else {
+                    IconButton(onClick = onCartClick) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_shopping_cart),
+                            contentDescription = "Cart",
+                            tint = MaterialTheme.colorScheme.onPrimary
+                        )
+                    }
                 }
             }
         )
     }
+
+
 
     @Composable
     fun MenuContent(selectedCategory: String) {
@@ -152,13 +157,13 @@ class CategoryActivity : ComponentActivity() {
                         )
                     }
                 }
-                // D'autres informations sur le plat peuvent être ajoutées ici
+                // autres infos
             }
         }
     }
 }
 
-// Les classes de données MenuData, CategoryItem, MonMenuItem, etc. devraient être définies comme avant
+
 data class MenuData(
     val data: List<CategoryItem>
 )
